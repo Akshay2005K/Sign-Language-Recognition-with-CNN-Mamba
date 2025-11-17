@@ -86,23 +86,24 @@ The goal is to build a lightweight, efficient sign-language recognition system t
 
 Your dataset should look like:
 
-AFML/
-
-  Dataset/
   
-    WLASL_Videos/
+    AFML/
+  
+      Dataset/
     
-      about/
+        WLASL_Videos/
       
-        1234.mp4
+          about/
         
-        1234.npy
+            1234.mp4
+          
+            1234.npy 
+          
+          accept/
         
-      accept/
-      
-      accident/
-      
-      ...
+          accident/
+        
+          ...
 
 
 Each folder is a gloss.
@@ -152,22 +153,38 @@ cnn_mamba_wlasl_highacc.pt
 
 # Model Architecture
 Input: (B, T, 150) keypoint sequence
+
   ↓ Linear projection
+  
   ↓ Temporal CNN layers (residual)
+  
   ↓ Mamba-style temporal blocks
+  
   ↓ Attention pooling
+  
   ↓ Fully connected classifier
+  
 Output: (B, num_classes)
 
 # Default Hyperparameters
 Parameter	                   Value
+
 SEQ_LEN	                      64
+
 D_MODEL	                     192
+
 CNN Layers	                  2
+
 Mamba Layers	                2
+
 Dropout	                     0.3
+
 Learning Rate	              5e-4
+
 Weight Decay	              5e-4
+
 Label Smoothing	            0.1
+
 Epochs	                     60
+
 Batch Size	                 32
