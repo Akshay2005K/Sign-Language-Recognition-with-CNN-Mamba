@@ -87,13 +87,21 @@ The goal is to build a lightweight, efficient sign-language recognition system t
 Your dataset should look like:
 
 AFML/
+
   Dataset/
+  
     WLASL_Videos/
+    
       about/
+      
         1234.mp4
+        
         1234.npy
+        
       accept/
+      
       accident/
+      
       ...
 
 
@@ -102,6 +110,7 @@ Each .npy file contains the extracted keypoint sequence for that video.
 
 # Installation
 pip install mediapipe opencv-python tqdm numpy
+
 pip install torch torchvision torchaudio
 
 # Keypoint Extraction
